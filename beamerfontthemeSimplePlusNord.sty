@@ -1,0 +1,33 @@
+%% SimplePlusNord: font theme.
+%% Fork of SimplePlus by Pin-Yen Huang (https://github.com/pm25/SimplePlus-BeamerTheme), Unlicense.
+
+% Everything is sans serif and light unless a rule below says otherwise; the
+% other fonts inherit from "structure".
+\setbeamerfont{structure}{series=\mdseries,family=\sffamily}
+
+% Title slide
+\setbeamerfont{title}{parent=structure,size=\huge,series=\bfseries}
+\setbeamerfont{subtitle}{parent=title,size=\normalsize}
+\setbeamerfont{author}{parent=structure,size=\large,series=\mdseries}
+\setbeamerfont{institute}{parent=structure,size=\scriptsize,series=\mdseries}
+\setbeamerfont{date}{parent=structure,size=\scriptsize,series=\mdseries}
+
+% The title of every other slide sits in the dark band, so it stays small
+\setbeamerfont{frametitle}{parent=structure,size=\large,series=\bfseries}
+
+% Overview
+\setbeamerfont{section in toc}{parent=structure,size=\large,series=\bfseries}
+\setbeamerfont{subsection in toc}{parent={section in toc},size=\small,series=\mdseries}
+
+% Text elements: items, captions, boxes and highlighted text
+\setbeamerfont{item}{parent=structure,series=\mdseries}
+\setbeamerfont{caption}{size=\footnotesize}
+\setbeamerfont{block title}{parent={structure,block body},size=\normalsize,series=\bfseries}
+\setbeamerfont{block title alerted}{series=\bfseries}
+\setbeamerfont{alerted text}{series=\bfseries}
+
+% Bottom of the slide. The sizes are in points, as a size command is too coarse
+% for text that has to stay quiet: 6.5pt on a 7.5pt line
+\setbeamerfont{page number current}{parent=structure,size*={6.5}{7.5}}
+\setbeamerfont{page number total}{parent=structure,size*={6.5}{7.5}}
+\setbeamerfont{source}{parent=structure,size*={6.5}{7.5}}

@@ -1,0 +1,31 @@
+%% SimplePlusNord: the theme, a light deck in the Nord colours.
+%% Fork of SimplePlus by Pin-Yen Huang (https://github.com/pm25/SimplePlus-BeamerTheme), Unlicense.
+%%
+%% Options, both off by default:
+%%   overview       one overview slide, a column per section, right after the title slide
+%%   sectionslides  the same slide before every section, the running section in colour and the
+%%                  others faded (it makes `overview' redundant)
+%% Either one replaces an \AtBeginSection of your own.
+
+\mode<presentation>
+
+\newif\ifsplusnord@overview
+\newif\ifsplusnord@sectionslides
+\DeclareOptionBeamer{overview}{\splusnord@overviewtrue}
+\DeclareOptionBeamer{sectionslides}{\splusnord@sectionslidestrue}
+\ProcessOptionsBeamer
+
+\usefonttheme{SimplePlusNord}
+\usecolortheme{SimplePlusNord}
+\useinnertheme{SimplePlusNord}
+
+\ifsplusnord@sectionslides
+    \AtBeginSection[]{\begin{frame}{Overview}\sectioncolumns[current]\end{frame}}
+\else
+    \ifsplusnord@overview
+        \AtBeginSection[]{%
+            \ifnum\value{section}=1 \begin{frame}{Overview}\sectioncolumns\end{frame}\fi}
+    \fi
+\fi
+
+\mode<all>
