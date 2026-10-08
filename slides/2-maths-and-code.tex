@@ -1,0 +1,297 @@
+% !TeX root = ../beamer.tex
+
+\section{Maths and code}
+
+\subsection{Theorem}
+\begin{frame}{Theorem}
+    \begin{theorem}[Pythagoras]
+        $a^{2}+b^{2}=c^{2}$
+    \end{theorem}
+
+    \begin{theorem}[A formula for the stress test]
+        \[
+            \mathcal{F}[f](\xi)=\int_{-\infty}^{\infty} f(x)\,e^{-2\pi i x\xi}\,dx,\qquad
+            \zeta(s)=\sum_{n=1}^{\infty}\frac{1}{n^{s}}=\prod_{p\ \mathrm{prime}}\frac{1}{1-p^{-s}}
+        \]
+        \[
+            \hat{\boldsymbol\beta}=\bigl(\mathbf{X}^{\top}\mathbf{X}\bigr)^{-1}\mathbf{X}^{\top}\mathbf{y},\quad
+            \mathbf{A}=\begin{pmatrix}a_{11}&\cdots&a_{1n}\\\vdots&\ddots&\vdots\\a_{m1}&\cdots&a_{mn}\end{pmatrix},\quad
+            \binom{n}{k}=\frac{n!}{k!\,(n-k)!}
+        \]
+        \[
+            \lim_{n\to\infty}\Pr\!\Bigl(\frac{\bar{X}_n-\mu}{\sigma/\sqrt{n}}\le z\Bigr)
+            =\frac{1}{\sqrt{2\pi}}\int_{-\infty}^{z}e^{-t^{2}/2}\,dt=\Phi(z)
+        \]
+    \end{theorem}
+\end{frame}
+
+\subsection{Definitions and examples}
+\begin{frame}{Definitions and examples}
+\begin{columns}[T,onlytextwidth]
+\begin{column}{0.5\textwidth}
+\step{1. A definition}
+\begin{codeonly}
+\begin{definition}[Title]
+  Text with \alert{emphasis}
+\end{definition}
+\end{codeonly}
+\end{column}
+\begin{column}{0.45\textwidth}
+\stepoffset
+\begin{definition}[Estimator]
+    A rule that turns a sample into a guess is an \alert{estimator}.
+\end{definition}
+\end{column}
+\end{columns}
+\bigskip
+\begin{columns}[T,onlytextwidth]
+\begin{column}{0.5\textwidth}
+\step{2. An example}
+\begin{codeonly}
+\begin{example}
+  Text
+\end{example}
+\end{codeonly}
+\end{column}
+\begin{column}{0.45\textwidth}
+\stepoffset
+\begin{example}
+    The sample mean $\bar{x}$ estimates $\mu$.
+\end{example}
+\end{column}
+\end{columns}
+\end{frame}
+
+\subsection{Theorems and proofs}
+\begin{frame}{Theorems and proofs}
+\begin{columns}[T,onlytextwidth]
+\begin{column}{0.5\textwidth}
+\step{1. A lemma, with its proof}
+\begin{codeonly}
+\begin{lemma}
+  Statement
+  \begin{proof}
+    Proof text
+  \end{proof}
+\end{lemma}
+\end{codeonly}
+\end{column}
+\begin{column}{0.45\textwidth}
+\stepoffset
+\begin{lemma}
+    $\operatorname{Var}(aX)=a^{2}\operatorname{Var}(X)$.
+    \begin{proof}
+        Expand and take $a^{2}$ out.
+    \end{proof}
+\end{lemma}
+\end{column}
+\end{columns}
+\bigskip
+\begin{columns}[T,onlytextwidth]
+\begin{column}{0.5\textwidth}
+\step{2. A theorem or a corollary}
+\begin{codeonly}
+\begin{theorem}[Title]
+\begin{corollary}
+\end{codeonly}
+\end{column}
+\begin{column}{0.45\textwidth}
+\stepoffset
+\begin{theorem}[Pythagoras]
+    $a^{2}+b^{2}=c^{2}$.
+\end{theorem}
+\end{column}
+\end{columns}
+\end{frame}
+
+\subsection{Without a box}
+\begin{frame}{Without a box}
+\begin{columns}[T,onlytextwidth]
+\begin{column}{0.5\textwidth}
+\step{1. Add a star}
+\begin{codedoc}
+\begin{theorem*}[Pythagoras]
+  $a^{2}+b^{2}=c^{2}$.
+  \begin{proof}
+    Compare the areas.
+  \end{proof}
+\end{theorem*}
+\end{codedoc}
+\end{column}
+\begin{column}{0.45\textwidth}
+\stepoffset
+\begin{theorem*}[Pythagoras]
+    $a^{2}+b^{2}=c^{2}$.
+    \begin{proof}
+        Compare the areas.
+    \end{proof}
+\end{theorem*}
+\end{column}
+\end{columns}
+\bigskip
+\begin{columns}[T,onlytextwidth]
+\begin{column}{0.5\textwidth}
+\step{2. Also definitions and examples}
+\begin{codedoc}
+\begin{definition*}[Estimator]
+\begin{example*}
+\end{codedoc}
+Lemmas and corollaries too.
+\end{column}
+\begin{column}{0.45\textwidth}
+\stepoffset
+\begin{definition*}[Estimator]
+    A rule that turns a sample into a guess.
+\end{definition*}
+\begin{example*}
+    The sample mean $\bar{x}$ estimates $\mu$.
+\end{example*}
+\end{column}
+\end{columns}
+\end{frame}
+
+\subsection{Formulas: code and result}
+\begin{frame}{Formulas: code and result}
+\begin{columns}[T,onlytextwidth]
+\begin{column}{0.5\textwidth}
+\step{1. A theorem}
+\begin{codeonly}
+\begin{theorem}[Title]
+  $\bar{X}_n \xrightarrow{p} \mu$
+\end{theorem}
+\end{codeonly}
+\end{column}
+\begin{column}{0.45\textwidth}
+\stepoffset
+\begin{theorem}[Large numbers]
+    $\bar{X}_n \xrightarrow{p} \mu$
+\end{theorem}
+\end{column}
+\end{columns}
+\bigskip
+\begin{columns}[T,onlytextwidth]
+\begin{column}{0.5\textwidth}
+\step{2. A formula}
+\begin{codeonly}
+\[
+  t=\frac{\bar{x}-\mu_0}{s/\sqrt{n}}
+\]
+\end{codeonly}
+\end{column}
+\begin{column}{0.45\textwidth}
+\stepoffset
+\[
+  t=\frac{\bar{x}-\mu_0}{s/\sqrt{n}}
+\]
+\end{column}
+\end{columns}
+\end{frame}
+
+\subsection{Code boxes}
+\begin{frame}{Code boxes}
+\begin{columns}[T,onlytextwidth]
+\begin{column}{0.5\textwidth}
+\step{1. Show code without running it}
+\begin{codedoc}
+\begin{codeonly}
+  \alert{some code}
+\end{codeonly}
+\end{codedoc}
+\end{column}
+\begin{column}{0.45\textwidth}
+\stepoffset
+\begin{codeonly}
+\alert{some code}
+\end{codeonly}
+\end{column}
+\end{columns}
+\bigskip
+\begin{columns}[T,onlytextwidth]
+\begin{column}{0.5\textwidth}
+\step{2. Code in a sentence}
+\begin{codedoc}
+The function \code{mean(xs)} returns
+the average, and in Python
+\code[Python]{return sum(xs)}.
+\end{codedoc}
+\end{column}
+\begin{column}{0.45\textwidth}
+\stepoffset
+The function \code{mean(xs)} returns the average, and in Python \code[Python]{return sum(xs)}.
+\end{column}
+\end{columns}
+\end{frame}
+
+\subsection{Source code}
+\begin{frame}{Source code}
+\begin{columns}[T,onlytextwidth]
+\begin{column}{0.5\textwidth}
+\step{1. A block per language}
+\begin{codedoc}
+\begin{codeblock}{Python}
+  def mean(xs):
+      return sum(xs) / len(xs)
+\end{codeblock}
+\end{codedoc}
+\smallskip
+\step{2. Any language of listings}
+C, C++, Python and Julia are set up. For another one, name it as listings does.
+\end{column}
+\begin{column}{0.45\textwidth}
+\stepoffset
+\begin{codeblock}{Python}
+# the average of a list
+def mean(xs):
+    return sum(xs) / len(xs)
+
+print(mean([1, 2, 3]))  # 2.0
+\end{codeblock}
+\end{column}
+\end{columns}
+\end{frame}
+
+\subsection{Pseudocode}
+\begin{frame}{Pseudocode}
+\begin{columns}[T,onlytextwidth]
+\begin{column}{0.5\textwidth}
+\step{1. In the font of the deck}
+\begin{codedoc}
+\begin{pseudocode}
+  m <- A[1]
+  for each a in A do
+    if a > m then m <- a
+\end{pseudocode}
+\end{codedoc}
+Keywords are bold, \code{<-} is an arrow, and a formula goes between dollar signs.
+\end{column}
+\begin{column}{0.45\textwidth}
+\stepoffset
+\begin{pseudocode}
+function max_of(A)
+    m <- A[1]            // best so far
+    for each a in A do
+        if a > m then m <- a
+    return m
+\end{pseudocode}
+\end{column}
+\end{columns}
+\bigskip
+\begin{columns}[T,onlytextwidth]
+\begin{column}{0.5\textwidth}
+\step{2. In typewriter, as a code box}
+\begin{codedoc}
+\begin{codeblock}{Pseudocode}
+  while lo <= hi do
+    mid <- $\lfloor (lo+hi)/2 \rfloor$
+\end{codeblock}
+\end{codedoc}
+\end{column}
+\begin{column}{0.45\textwidth}
+\stepoffset
+\begin{codeblock}{Pseudocode}
+while lo <= hi do
+    mid <- $\lfloor (lo+hi)/2 \rfloor$
+\end{codeblock}
+\end{column}
+\end{columns}
+\end{frame}

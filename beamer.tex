@@ -1,0 +1,39 @@
+
+% The theme is in theme/: Beamer finds it through this path
+\makeatletter\def\input@path{{theme/}}\makeatother
+\documentclass[aspectratio=1610,xcolor=dvipsnames]{beamer}
+\usetheme[sectionslides]{SimplePlusNord}
+
+\usepackage{graphicx}
+\graphicspath{{slides/img/}}
+
+% In the "how to" slides each step is a label and a code box on the left; \stepoffset puts what the
+% step produces, on the right, level with the code box and not with the label
+\newcommand{\step}[1]{\textbf{#1}\par\smallskip}
+\newcommand{\stepoffset}{\textbf{\vphantom{X}}\par\smallskip}
+
+% codedoc: to print the line \end{codeonly} inside a code box, that box needs a different name
+\newtcblisting{codedoc}{splusnord code,listing only}
+
+\input{meta/info}
+
+\begin{document}
+
+\begin{frame}
+    \titlepage
+\end{frame}
+
+% the first overview: the sections one under the other, as a list. \darkslide, put right after
+% \begin{frame}, turns any slide dark like the first one and hides its title
+\begin{frame}{Outline}
+    \darkslide
+    \sectionlist
+\end{frame}
+
+\input{slides/1-text-and-boxes}
+\input{slides/2-maths-and-code}
+\input{slides/3-data-and-citations}
+\input{slides/4-references}
+\input{slides/5-thank-you}
+
+\end{document}

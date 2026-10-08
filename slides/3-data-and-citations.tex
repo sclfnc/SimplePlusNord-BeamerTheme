@@ -1,0 +1,149 @@
+% !TeX root = ../beamer.tex
+
+\section{Data and citations}
+
+\subsection{Table}
+\begin{frame}{Table}
+    \begin{table}
+        \begin{tabular}{l r r}
+            \textbf{Group} & \textbf{Mean} & \textbf{Deviation} \\
+            \headrule
+            Control             & 0.562               & 0.0123              \\ \hline
+            Low dose            & 0.910               & 0.0456              \\ \hline
+            High dose           & 0.296               & 0.0089              \\
+        \end{tabular}
+        \caption{Three groups of the experiment}
+    \end{table}
+    \source{Verdi (2021), Table 2}
+\end{frame}
+
+\subsection{Table: code and result}
+\begin{frame}{Table: code and result}
+\begin{columns}[T,onlytextwidth]
+\begin{column}{0.5\textwidth}
+\step{1. Header and rule}
+\begin{codeonly}
+\textbf{Group} & \textbf{Mean} \\
+\headrule
+\end{codeonly}
+\smallskip
+\step{2. Rows}
+\begin{codeonly}
+Control & 0.562 \\ \hline
+Treated & 0.910 \\
+\end{codeonly}
+\smallskip
+\step{3. Source}
+\begin{codeonly}
+\source{Verdi (2021)}
+\end{codeonly}
+\end{column}
+\begin{column}{0.45\textwidth}
+\stepoffset
+\begin{table}
+  \begin{tabular}{l r}
+    \textbf{Group} & \textbf{Mean} \\
+    \headrule
+    Control & 0.562 \\ \hline
+    Treated & 0.910 \\
+  \end{tabular}
+  \caption{Group means}
+\end{table}
+\source{Verdi (2021)}
+\end{column}
+\end{columns}
+\end{frame}
+
+\subsection{Figure: transparent}
+\begin{frame}{Figure: transparent}
+\begin{columns}[T,onlytextwidth]
+\begin{column}{0.5\textwidth}
+\step{1. A figure with alpha}
+\begin{codeonly}
+\begin{figure}
+  \includegraphics[height=4cm]
+    {graph.png}
+  \caption{Caption}
+\end{figure}
+\end{codeonly}
+\smallskip
+\step{2. Name the source}
+\begin{codeonly}
+\source{AVDLCZ, CC0}
+\end{codeonly}
+\end{column}
+\begin{column}{0.45\textwidth}
+\stepoffset
+\begin{figure}
+    \includegraphics[height=0.5\textheight]{graph.png}
+    \caption{A PNG with a transparent background sits on the slide as it is}
+\end{figure}
+\source{AVDLCZ, CC0}
+\end{column}
+\end{columns}
+\end{frame}
+
+\subsection{Figure: opaque}
+\begin{frame}{Figure: opaque}
+\begin{columns}[T,onlytextwidth]
+\begin{column}{0.5\textwidth}
+\step{1. A photo, corners rounded}
+\begin{codeonly}
+\begin{figure}
+  \roundedgraphics
+    [height=4cm]{photo.jpg}
+  \caption{Caption}
+\end{figure}
+\end{codeonly}
+\smallskip
+\step{2. Name the source}
+\begin{codeonly}
+\source{NASA / B. Anders}
+\end{codeonly}
+\end{column}
+\begin{column}{0.45\textwidth}
+\stepoffset
+\begin{figure}
+    \roundedgraphics[height=0.5\textheight]{earthrise.jpg}
+    \caption{A photo keeps its own background, with the corners slightly rounded}
+\end{figure}
+\source{NASA / B. Anders}
+\end{column}
+\end{columns}
+\end{frame}
+
+\subsection{Citation}
+\begin{frame}{Citation}
+    \verb|\cite| gives the number of the entry in the list of references.
+
+    One work is cited like this \cite{p1}, two at once like this \cite{p1,p2}.
+\end{frame}
+
+\subsection{Citation: code and result}
+\begin{frame}{Citation: code and result}
+\begin{columns}[T,onlytextwidth]
+\begin{column}{0.5\textwidth}
+\step{1. Cite}
+\begin{codeonly}
+\cite{p1}
+\cite{p1,p2}
+\end{codeonly}
+\smallskip
+\step{2. Name the sources}
+\begin{codeonly}
+\source{Verdi (2021)}
+\source{Rossi (2019)}
+\end{codeonly}
+\smallskip
+\step{3. Lighten a remark}
+\begin{codeonly}
+\fade{remark}
+\end{codeonly}
+\end{column}
+\begin{column}{0.45\textwidth}
+\stepoffset
+One source \cite{p1}, two at once \cite{p1,p2}, and a faded \fade{remark}.
+\source{Verdi (2021)}\source{Rossi (2019)}
+\end{column}
+\end{columns}
+\end{frame}
