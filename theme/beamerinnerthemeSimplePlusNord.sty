@@ -5,8 +5,23 @@
 %% Geometry, and the switch that makes one slide dark
 %% ---------------------------------------------------------------------------
 
-\setbeamersize{text margin left=3em,text margin right=3em}
+% The side margins are 1/16 of the width of the page (6.25%, 1cm at 16:10, which is also the margin
+% that Beamer and Metropolis use). As a part of the page, and not a length in em, they do not change
+% with the size of the type. The title, the body, the sources and the page number share them.
+\setbeamersize{text margin left=\dimexpr\paperwidth/16\relax,text margin right=\dimexpr\paperwidth/16\relax}
 \setbeamertemplate{navigation symbols}{}
+
+% The title band starts at the top edge of the page and the progress strip ends at the bottom edge.
+% Beamer measures the footline and keeps that much room (plus 4pt of its own) under \textheight, so
+% the body area runs from the band to the footline.
+
+% Beamer centres the body of a frame with 1 part of free space above it and 1.5 below, which leaves
+% it a little high. Here the two are equal. Beamer sets this key again at the start of each frame.
+\define@key{beamerframe}{c}[true]{%
+    \beamer@frametopskip=0pt plus 1fill\relax
+    \beamer@framebottomskip=0pt plus 1fill\relax
+    \beamer@frametopskipautobreak=0pt plus .5\paperheight\relax
+    \beamer@framebottomskipautobreak=0pt plus .5\paperheight\relax}
 
 % The background and the bottom of a slide are drawn after the body of its frame, outside the
 % group of the body: a setting made inside the frame cannot reach them. The title slide and
@@ -21,10 +36,9 @@
     \setbeamercolor{normal text}{fg=nord6}\setbeamercolor{structure}{fg=nord6}%
     \setbeamercolor{section in toc}{fg=nord6}\setbeamercolor{subsection in toc}{fg=nord4}%
     \setbeamercolor{item}{fg=nord6}%
-    % Beamer centres the body above the bottom strip, which this slide does not have, and below a
-    % title that it does not show; the skip brings the middle of the body back to the middle of the
-    % slide (the body moves by half of it, measured on a rule)
-    \vspace*{47pt}%
+    % This slide has no footline, but \textheight stops above where it would be: a skip of
+    % \footheight moves the middle of the body down by half of it, to the middle of the slide
+    \vspace*{\footheight}%
     \color{nord6}}
 
 %% ---------------------------------------------------------------------------
@@ -70,9 +84,11 @@
 % A dark slide has no band: what it says is already in its body
 \setbeamertemplate{frametitle}{%
     \ifsplusnord@dark\else
-    % Beamer leaves 1pt above the title: pull the band up to the edge of the page
-    \vskip-1pt
-    \begin{beamercolorbox}[wd=\paperwidth,ht=21pt,dp=11pt,left]{frametitle}
+    % The band takes the first 15% of the page, with the title in the middle (ht and dp put the
+    % baseline 7pt under the middle of the band). The glue that TeX puts between two boxes (here
+    % \lineskip, as the band is higher than \baselineskip) would push the band down: it is left out.
+    \nointerlineskip
+    \begin{beamercolorbox}[wd=\paperwidth,ht=0.1\paperheight,dp=0.05\paperheight,left]{frametitle}
         \leftskip=\beamer@leftmargin
         \rightskip=\beamer@rightmargin
         \usebeamerfont{frametitle}\insertframetitle\par
@@ -110,7 +126,7 @@
             {\usebeamerfont{page number current}\usebeamercolor[fg]{page number current}\insertframenumber}%
             {\usebeamerfont{page number current}\usebeamercolor[fg]{page number total}\thinspace/\thinspace}%
             {\usebeamerfont{page number total}\usebeamercolor[fg]{page number total}\inserttotalframenumber}%
-            \kern8pt}%
+            \kern\beamer@rightmargin}%
         \nointerlineskip\vskip3pt
         \hbox to\paperwidth{%
             {\color{nord4}\vrule width\paperwidth height 3pt}%
@@ -250,7 +266,11 @@
 
 % \sectionlist: the sections one under the other, as a bulleted list, for the first overview of a deck
 % (the subsections are left out). It is meant for a \darkslide, like the other overviews.
-\newcommand\sectionlist{{%
+% The list is in a box: the table of contents of Beamer ends with a \vfill, which in a frame that is
+% centred shares the free space with the frame and leaves the list high on the slide. In a box
+% a \vfill takes no space. The \vskip that ends the last entry balances the space that the table of
+% contents leaves above the first one, so that the list is at the middle of the slide.
+\newcommand\sectionlist{\vbox{%
     \setbeamertemplate{section in toc}{%
         \ifnum\inserttocsectionnumber=\splusnordextra\vskip1.2em\fi
         \leavevmode
@@ -270,7 +290,9 @@
 \AtEndDocument{\immediate\write\@auxout{\string\gdef\string\splusnordnsec{\the\c@section}}}
 \providecommand\splusnordnsec{1}
 \newcount\splusnord@ncol
-\newcommand\sectioncolumns[1][all]{%
+\newcommand\sectioncolumns[1][all]{\vbox{%
+    % 1em of space above moves the list down by half of it, to the middle of the slide (measured)
+    \vskip1em
     \def\splusnord@mode{#1}%
     \def\splusnord@current{current}%
     \splusnord@ncol=\splusnordnsec\relax
@@ -314,7 +336,7 @@
                 \tableofcontents[sections={\splusnordextra},hideallsubsections]%
             \fi
         \endgroup
-    \fi}
+    \fi}}
 
 %% ---------------------------------------------------------------------------
 %% Code boxes, which use the listings package through tcolorbox
